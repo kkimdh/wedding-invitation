@@ -22,4 +22,13 @@ export default defineNuxtConfig({
       },
     },
   },
+
+  ui: {
+    colorMode: false,
+  },
+  app: {
+    head: {
+      meta: [{ name: "color-scheme", content: "light only" }],
+    },
+  },
 });
