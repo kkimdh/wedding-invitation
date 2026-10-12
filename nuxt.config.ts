@@ -5,15 +5,17 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false,
   },
-
   css: ["~/assets/css/main.css"],
-
+  app: {
+    head: {
+      title: "The Beginning of Us",
+      meta: [{ name: "color-scheme", content: "light only" }],
+    },
+  },
   routeRules: {
     "/": { prerender: true },
   },
-
   compatibilityDate: "2026-10-08",
-
   eslint: {
     config: {
       stylistic: {
@@ -22,13 +24,7 @@ export default defineNuxtConfig({
       },
     },
   },
-
   ui: {
     colorMode: false,
-  },
-  app: {
-    head: {
-      meta: [{ name: "color-scheme", content: "light only" }],
-    },
   },
 });
