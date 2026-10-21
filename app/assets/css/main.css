@@ -1,36 +1,122 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-/* 디자인 토큰 (색/폰트는 여기서만 바꾸면 전체 반영) */
+/* ─────────────────────────────
+   기본 청첩장 색/폰트
+   (섹션 베이지 #f6f2ec 와 어울리는 아이보리 배경)
+   ───────────────────────────── */
 @theme {
-  --color-paper: #fdfbf7; /* 청첩장 본문 배경 */
-  --color-outside: #efebe4; /* PC에서 양옆 바깥 배경 */
-  --color-ink: #3d3a36; /* 기본 글자색 */
-  --color-muted: #8c857b; /* 보조 글자색 */
-  --color-point: #b48a78; /* 포인트 컬러 */
-  --color-line: #e8e2d8; /* 구분선 */
+  --color-paper: #fcfaf6; /* 전체 배경 (연한 아이보리) */
+  --color-paper-deep: #ece7df; /* 사진·지도 뜨기 전 빈자리 */
+  --color-outside: #ede7dd; /* PC 양옆 배경 */
+  --color-ink: #3d3a36; /* 기본 글자 */
+  --color-muted: #8c857b; /* 보조 글자 */
+  --color-point: #a08b7d; /* 포인트 */
+  --color-line: #e6dfd4; /* 구분선 */
+  --color-link: #2a6fb0; /* 미니홈피 파란 링크 */
 
-  --font-serif: "Nanum Myeongjo", serif;
+  --font-serif: "MaruBuri", "Nanum Myeongjo", serif;
   --font-sans: "Pretendard", system-ui, sans-serif;
+  --font-pixel: "Galmuri11", "Galmuri9", monospace;
 }
 
+/* ─────────────────────────────
+   미니홈피 버전 (minihomepage 페이지에서 body에 theme-retro가 붙음)
+   같은 이름의 색을 덮어써서 bg-paper, text-point 등이 자동으로 바뀜
+   ───────────────────────────── */
+body.theme-retro {
+  --color-outside: #dfeaf3;
+  --color-paper: #9fd0ea;
+  --color-ink: #333333;
+  --color-muted: #888888;
+  --color-point: #ff7a1a;
+  --color-line: #cfcfcf;
+  --font-sans: "Galmuri11", system-ui, sans-serif;
+  font-family: var(--font-sans);
+
+  /* 바깥 체크무늬 */
+  background-image: linear-gradient(#ffffff80 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff80 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* ─────────────────────────────
+   공통
+   ───────────────────────────── */
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 body {
+  /* Nuxt UI의 text-muted가 우리 색을 덮지 않도록 연결 */
+  --ui-text-muted: var(--color-muted);
   margin: 0;
-  background: var(--color-outside);
+  background-color: var(--color-outside);
   color: var(--color-ink);
-  font-family: var(--font-sans);
-  word-break: keep-all; /* 한글 단어 중간에서 줄바꿈 방지 */
+  font-family: var(--font-serif); /* 기본 청첩장은 마루부리 */
+  word-break: keep-all;
   -webkit-font-smoothing: antialiased;
 }
 
-/* 사진 저장 방지 (모바일 길게 누르기, 드래그) */
 img {
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
   user-select: none;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+/* 페이지 전환 (기본 ↔ 미니홈피) */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+/* 메인 사진: 처음 들어올 때 살짝 줌아웃 */
+@keyframes slow-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.main-photo {
+  animation: slow-zoom 2.4s ease-out both;
+}
+
+/* BGM 전광판 흐르는 글자 */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 10s linear infinite;
+}
+.marquee-track span {
+  padding-right: 3em;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 동작 줄이기 설정한 사람은 효과 끄기 */
+@media (prefers-reduced-motion: reduce) {
+  .main-photo,
+  .marquee-track {
+    animation: none;
+  }
 }
