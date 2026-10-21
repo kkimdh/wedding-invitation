@@ -75,7 +75,8 @@ export const wedding = {
 
   hero: { bubble: "Forever" },
   // public/images/main
-  mainPhoto: "/images/main.png",
+  mainPhoto: "/images/main.jpg",
+  minihomepageMainPhoto: "/images/minihomepageMain.jpg",
 
   // public/images/gallery/01.webp ~ 20.webp
   gallery: Array.from(
@@ -97,49 +98,6 @@ export const wedding = {
     { bank: string; number: string; holder: string }[]
   >,
 
-  // 미니홈피 다이어리 (우리 이야기) — 날짜 순서대로, 사진 - public/images/story/
-  stories: [
-    {
-      date: "2024-03-10",
-      title: "처음 만난 날",
-      mood: "😳",
-      text: "어색하게 인사하고 밥을 먹었는데\n이상하게 시간이 금방 갔던 날.",
-      photo: "/images/story/test.jpg",
-    },
-    {
-      date: "2024-06-17",
-      title: "100일",
-      mood: "🎂",
-      text: "케이크에 초 하나 꽂고\n백 일 동안 고마웠다고 말했어요.",
-    },
-    {
-      date: "2025-03-10",
-      title: "1주년",
-      mood: "💐",
-      text: "1년 전 그 식당에 다시 갔어요.\n메뉴도 그대로, 우리도 그대로.",
-      photo: "/images/story/test.jpg",
-    },
-    {
-      date: "2026-05-01",
-      title: "프러포즈",
-      mood: "💍",
-      text: "떨려서 준비한 말을 반도 못 했지만\n대답은 바로 들었어요.",
-      photo: "/images/story/test.jpg",
-    },
-    {
-      date: "2026-08-20",
-      title: "웨딩 촬영",
-      mood: "📸",
-      text: "하루 종일 웃느라 볼이 아팠던 날.\n사진첩에 많이 올려둘게요!",
-    },
-    {
-      date: "2027-02-13",
-      title: "우리 결혼해요",
-      mood: "💒",
-      text: "이제 같은 집, 같은 홈피에서\n함께 살아가요. 놀러 와 주세요!",
-    },
-  ] as Story[],
-
   // 브라우저 탭, 링크 미리보기, 카카오톡 공유 카드
   share: {
     tabTitle: "The Beginning of Us",
@@ -155,6 +113,48 @@ export const wedding = {
     intro: "소중한 분들을\n초대합니다 ♡",
     bgmTitle: "The Beginning of Us - 혜성 & 도혜",
     miniroom: "B" as "A" | "B", // MiniRoom 그림 버전
+    // 미니홈피 다이어리 (우리 이야기) — 날짜 순서대로, 사진 - public/images/story/
+    stories: [
+      {
+        date: "2024-03-10",
+        title: "처음 만난 날",
+        mood: "😳",
+        text: "어색하게 인사하고 밥을 먹었는데\n이상하게 시간이 금방 갔던 날.",
+        photo: "/images/story/test.jpg",
+      },
+      {
+        date: "2024-06-17",
+        title: "100일",
+        mood: "🎂",
+        text: "케이크에 초 하나 꽂고\n백 일 동안 고마웠다고 말했어요.",
+      },
+      {
+        date: "2025-03-10",
+        title: "1주년",
+        mood: "💐",
+        text: "1년 전 그 식당에 다시 갔어요.\n메뉴도 그대로, 우리도 그대로.",
+        photo: "/images/story/test.jpg",
+      },
+      {
+        date: "2026-05-01",
+        title: "프러포즈",
+        mood: "💍",
+        text: "떨려서 준비한 말을 반도 못 했지만\n대답은 바로 들었어요.",
+        photo: "/images/story/test.jpg",
+      },
+      {
+        date: "2026-08-20",
+        title: "웨딩 촬영",
+        mood: "📸",
+        text: "하루 종일 웃느라 볼이 아팠던 날.\n사진첩에 많이 올려둘게요!",
+      },
+      {
+        date: "2027-02-13",
+        title: "우리 결혼해요",
+        mood: "💒",
+        text: "이제 같은 집, 같은 홈피에서\n함께 살아가요. 놀러 와 주세요!",
+      },
+    ] as Story[],
     // 미니홈피 사진첩 — 비워두면([]) gallery 사진이 '웨딩촬영' 폴더로 자동으로 들어감
     album: [
       {

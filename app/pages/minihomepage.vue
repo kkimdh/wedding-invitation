@@ -31,7 +31,7 @@
                 class="aspect-[3/4] overflow-hidden border border-line bg-[#f2f2f2] p-1"
               >
                 <img
-                  :src="wedding.mainPhoto"
+                  :src="wedding.minihomepageMainPhoto"
                   alt=""
                   class="h-full w-full object-cover"
                   onerror="this.style.display='none'"
@@ -138,7 +138,9 @@
               class="flex justify-between border-b border-line bg-[#f7f7f7] px-2 py-1 text-[11px]"
             >
               <span class="text-link">📔 다이어리</span>
-              <span class="text-muted">우리 이야기 ({{ stories.length }})</span>
+              <span class="text-muted"
+                >우리 이야기 ({{ wedding.retro.stories.length }})</span
+              >
             </div>
 
             <article
@@ -632,7 +634,7 @@ async function toggleBgm() {
 }
 
 /* ───────── 다이어리 ───────── */
-const stories = wedding.stories.map((s) => {
+const stories = wedding.retro.stories.map((s) => {
   const d = dayjs(s.date);
   return {
     ...s,
