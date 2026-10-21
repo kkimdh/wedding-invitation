@@ -138,33 +138,94 @@
               class="flex justify-between border-b border-line bg-[#f7f7f7] px-2 py-1 text-[11px]"
             >
               <span class="text-link">📔 다이어리</span>
-              <span class="text-muted"
-                >우리 이야기 ({{ wedding.retro.stories.length }})</span
-              >
+              <span class="text-muted">우리 이야기 ({{ stories.length }})</span>
             </div>
 
+            <!-- 달력 -->
+            <div class="border-b border-dashed border-line px-3 py-2">
+              <div class="flex items-center justify-center gap-5 text-[12px]">
+                <button
+                  type="button"
+                  class="px-1 text-muted disabled:opacity-30"
+                  :disabled="monthIndex <= 0"
+                  aria-label="이전 달"
+                  @click="goMonth(-1)"
+                >
+                  ◀
+                </button>
+                <span class="text-point">{{
+                  diaryMonth.replace("-", ".")
+                }}</span>
+                <button
+                  type="button"
+                  class="px-1 text-muted disabled:opacity-30"
+                  :disabled="monthIndex >= diaryMonths.length - 1"
+                  aria-label="다음 달"
+                  @click="goMonth(1)"
+                >
+                  ▶
+                </button>
+              </div>
+
+              <div class="mt-2 grid grid-cols-7 text-center text-[11px]">
+                <span
+                  v-for="(w, i) in DIARY_WEEK"
+                  :key="w"
+                  class="pb-1 text-[10px]"
+                  :class="
+                    i === 0
+                      ? 'text-[#e05a5a]'
+                      : i === 6
+                      ? 'text-link'
+                      : 'text-muted'
+                  "
+                  >{{ w }}</span
+                >
+
+                <template v-for="(c, i) in diaryCells" :key="i">
+                  <span v-if="!c" />
+                  <button
+                    v-else-if="c.index >= 0"
+                    type="button"
+                    class="mx-auto my-0.5 size-6 rounded-full"
+                    :class="
+                      c.index === diaryIndex
+                        ? 'bg-point text-white'
+                        : 'font-bold text-point underline'
+                    "
+                    @click="diaryIndex = c.index"
+                  >
+                    {{ c.day }}
+                  </button>
+                  <span v-else class="my-0.5 leading-6 text-[#cfc9bf]">{{
+                    c.day
+                  }}</span>
+                </template>
+              </div>
+            </div>
+
+            <!-- 고른 날의 일기 -->
             <article
-              v-for="(s, i) in stories"
-              :key="s.date + s.title"
+              v-if="story"
+              :key="story.date + story.title"
               class="px-3 py-4"
-              :class="i > 0 && 'border-t border-dashed border-line'"
             >
               <div class="flex items-center justify-between text-[11px]">
-                <span class="text-muted">{{ s.dateLabel }}</span>
-                <span v-if="s.dayCount" class="text-point"
-                  >D+{{ s.dayCount.toLocaleString() }}</span
+                <span class="text-muted">{{ story.dateLabel }}</span>
+                <span v-if="story.dayCount" class="text-point"
+                  >D+{{ story.dayCount.toLocaleString() }}</span
                 >
               </div>
               <h3 class="mt-1.5 text-[13px]">
-                <span v-if="s.mood" class="mr-1">{{ s.mood }}</span
-                >{{ s.title }}
+                <span v-if="story.mood" class="mr-1">{{ story.mood }}</span
+                >{{ story.title }}
               </h3>
               <div
-                v-if="s.photo"
+                v-if="story.photo"
                 class="mt-2 border border-line bg-[#f2f2f2] p-1"
               >
                 <img
-                  :src="s.photo"
+                  :src="story.photo"
                   alt=""
                   loading="lazy"
                   class="block aspect-[4/3] w-full object-cover"
@@ -174,9 +235,34 @@
               <p
                 class="mt-2 text-[12px] leading-6 whitespace-pre-line text-ink"
               >
-                {{ s.text }}
+                {{ story.text }}
               </p>
             </article>
+
+            <!-- 이전 일기 / 다음 일기 -->
+            <div
+              class="flex items-center justify-between border-t border-line bg-[#fbfbfb] px-2 py-1.5 text-[11px]"
+            >
+              <button
+                type="button"
+                class="text-link disabled:opacity-30"
+                :disabled="diaryIndex === 0"
+                @click="diaryIndex--"
+              >
+                ◀ 이전 일기
+              </button>
+              <span class="text-muted"
+                >{{ diaryIndex + 1 }} / {{ stories.length }}</span
+              >
+              <button
+                type="button"
+                class="text-link disabled:opacity-30"
+                :disabled="diaryIndex === stories.length - 1"
+                @click="diaryIndex++"
+              >
+                다음 일기 ▶
+              </button>
+            </div>
           </div>
         </section>
 
@@ -188,13 +274,14 @@
               <span class="text-link">
                 <svg
                   viewBox="0 0 12 10"
-                  class="mr-1 inline-block size-3.5 align-[-2px]"
+                  class="mr-0.5 inline-block size-3.5 align-[-2px]"
                   shape-rendering="crispEdges"
                   aria-hidden="true"
                 >
                   <path d="M0 1h5v1h7v8H0z" fill="#e0a92e" />
-                  <path d="M1 3h10v6H1z" fill="#f7d36b" /></svg
-                >사진첩
+                  <path d="M1 3h10v6H1z" fill="#f7d36b" />
+                </svg>
+                사진첩
               </span>
               <span class="text-muted"> ({{ album.length }})</span>
             </p>
@@ -317,13 +404,14 @@
                 <span class="truncate text-link">
                   <svg
                     viewBox="0 0 12 10"
-                    class="mr-1 inline-block size-3.5 align-[-2px]"
+                    class="mr-0.5 inline-block size-3.5 align-[-2px]"
                     shape-rendering="crispEdges"
                     aria-hidden="true"
                   >
                     <path d="M0 1h5v1h7v8H0z" fill="#e0a92e" />
-                    <path d="M1 3h10v6H1z" fill="#f7d36b" /></svg
-                  >{{ post?.title }}
+                    <path d="M1 3h10v6H1z" fill="#f7d36b" />
+                  </svg>
+                  {{ post?.title }}
                 </span>
                 <button
                   type="button"
@@ -642,6 +730,32 @@ const stories = wedding.retro.stories.map((s) => {
     dayCount: d.isValid() ? d.diff(dayjs(wedding.metDate), "day") + 1 : null, // 만난 날 = D+1
   };
 });
+const DIARY_WEEK = ["일", "월", "화", "수", "목", "금", "토"];
+// 일기가 있는 달만 ('2024-03', '2024-06' ...)
+const diaryMonths = [...new Set(stories.map((s) => s.date.slice(0, 7)))];
+const diaryIndex = ref(0); // 지금 보고 있는 일기 번호 (처음엔 첫 일기)
+const story = computed(() => stories[diaryIndex.value]);
+const diaryMonth = computed(
+  () => (story.value ?? stories[0])?.date.slice(0, 7) ?? ""
+);
+const monthIndex = computed(() => diaryMonths.indexOf(diaryMonth.value));
+
+// 달력 칸: 빈칸은 null, 날짜는 { day, index } (index = 그날 일기 번호, 없으면 -1)
+const diaryCells = computed(() => {
+  const first = dayjs(`${diaryMonth.value}-01`);
+  const blanks: null[] = Array(first.day()).fill(null);
+  const days = Array.from({ length: first.daysInMonth() }, (_, i) => {
+    const date = `${diaryMonth.value}-${String(i + 1).padStart(2, "0")}`;
+    return { day: i + 1, index: stories.findIndex((s) => s.date === date) };
+  });
+  return [...blanks, ...days];
+});
+
+// ◀ ▶ : 일기 있는 이전/다음 달의 첫 일기로
+function goMonth(step: number) {
+  const m = diaryMonths[monthIndex.value + step];
+  if (m) diaryIndex.value = stories.findIndex((s) => s.date.startsWith(m));
+}
 
 /* ───────── 방명록 ───────── */
 const GB_PAGE = 5;
