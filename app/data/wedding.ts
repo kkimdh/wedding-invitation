@@ -144,7 +144,7 @@ export const wedding = {
   share: {
     tabTitle: "The Beginning of Us",
     title: "혜성 ♥ 도혜 결혼합니다",
-    description: "2027년 2월 13일 토요일 오전 11시 50분 AW 컨벤션 안산",
+    description: "2027년 2월 13일 토요일 오전 11시 50분",
     image: "/og.jpg", // public/og.jpg (가로 800 x 세로 400 권장)
   },
 
