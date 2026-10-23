@@ -96,7 +96,7 @@ export const wedding = {
     tabTitle: "The Beginning of Us",
     title: "The Beginning of Us",
     description: "2027년 2월 13일 토요일 AM 11시 50분",
-    image: "/og.jpg", // (가로 800 x 세로 400 권장)
+    image: "image: '/og.jpg?v=2',", // (가로 800 x 세로 400 권장)
   },
 
   gallery: Array.from(
@@ -114,7 +114,7 @@ export const wedding = {
     // 미니홈피 다이어리 (우리 이야기) — 날짜 순서대로
     stories: [
       {
-        date: "2024-03-10",
+        date: "2024-03-03",
         title: "첫 만남",
         mood: "🍚",
         text: "밥만 먹고 헤어지려 했는데\n커피까지 마시고 헤어졌다.",
