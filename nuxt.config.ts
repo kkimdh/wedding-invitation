@@ -9,8 +9,8 @@ export default defineNuxtConfig({
   ui: { colorMode: false },
 
   runtimeConfig: {
+    guestbookAdminPassword: "", // 서버 전용 (NUXT_GUESTBOOK_ADMIN_PASSWORD)
     public: {
-      guestbookAdminPassword: "",
       kakaoJsKey: "",
       siteUrl: "https://dohyeseong-wedding-invitation.vercel.app",
 
