@@ -101,7 +101,7 @@ export const wedding = {
   // 브라우저 탭, 링크 미리보기, 카카오톡 공유 카드
   share: {
     tabTitle: "The Beginning of Us",
-    title: "혜성 ♥ 도혜 결혼합니다",
+    title: "The Beginning of Us",
     description: "2027년 2월 13일 토요일 오전 11시 50분",
     image: "/og.jpeg", // public/og.jpeg (가로 800 x 세로 400 권장)
   },
