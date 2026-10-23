@@ -103,7 +103,7 @@ export const wedding = {
     tabTitle: "The Beginning of Us",
     title: "The Beginning of Us",
     description: "2027년 2월 13일 토요일 오전 11시 50분",
-    image: "/og.jpeg", // public/og.jpeg (가로 800 x 세로 400 권장)
+    image: "/og.jpg", // public/og.jpg (가로 800 x 세로 400 권장)
   },
 
   // 미니홈피 버전에서만 쓰는 내용
