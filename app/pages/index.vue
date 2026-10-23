@@ -232,11 +232,11 @@
           <li
             v-for="item in t.items"
             :key="item.text"
-            class="flex items-start gap-2"
+            class="flex items-center gap-2"
           >
             <span
               v-if="item.dot"
-              class="mt-[7px] size-3 shrink-0 rounded-full"
+              class="size-3 shrink-0 rounded-full"
               :style="{ background: item.dot }"
             />
             <span>{{ item.text }}</span>

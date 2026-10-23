@@ -30,37 +30,35 @@ export const wedding = {
   transport: [
     {
       title: "지하철",
-      items: [{ dot: "#00a4e3", text: "4호선 고잔역 2번 출구" }],
-      notes: ["2번 출구 앞에서 셔틀버스를 이용해 주세요"],
+      items: [
+        { dot: "#00a4e3", text: "4호선 고잔역 2번 출구" },
+        { dot: "#F5A200", text: "수인분당선 고잔역 2번 출구" },
+      ],
+      notes: ["셔틀버스 5~7분 간격 운행 / 도보 15분"],
     },
     {
       title: "버스",
       items: [
         {
           dot: "#95c53c",
-          text: "일반버스 : 3, 10, 50, 80B, 80C, 90A, 98, 99-1, 123",
+          text: "일반버스 : 3, 10, 50, 80B, 98, 99-1, 88, 77",
         },
         { dot: "#e60012", text: "직행좌석 : 1100, 3103, 5609" },
       ],
       notes: [
+        "동남레이크빌 정류장 하차",
+        "대림호수공원아파트 정류장 하차",
         "안산문화숲의광장 정류장 하차",
-        "3100번(직행좌석)은 동남레이크빌 정류장 하차",
       ],
     },
     {
-      title: "셔틀버스",
-      items: [{ text: "고잔역 2번 출구 앞 → AW컨벤션" }],
-      notes: ["5~7분 간격 운행, 약 5분 소요", "예식 후 2시간까지 운행"],
+      title: "자가용 · 주차",
+      items: [
+        { text: "양지주차타워 (AW컨벤션 주차타워)" },
+        { text: "AW컨벤션 정문 맞은편 공영주차장" },
+        { text: "MK주차타워" },
+      ],
     },
-    // {
-    //   title: "자가용 · 주차",
-    //   items: [
-    //     { text: "제1주차장 : AW컨벤션 지상, 지하 1~2층" },
-    //     { text: "제2주차장 : 양지주차타워 (AW컨벤션 주차타워)" },
-    //     { text: "제3주차장 : AW컨벤션 정문 맞은편 공영주차장" },
-    //     { text: "제4주차장 : MK주차타워" },
-    //   ],
-    // },
   ] as {
     title: string;
     items?: { dot?: string; text: string }[];
@@ -74,24 +72,19 @@ export const wedding = {
 따뜻한 마음으로 축복해 주세요.`,
 
   hero: { bubble: "Forever" },
-  // public/images/main
   mainPhoto: "/images/main.jpg",
   minihomepageMainPhoto: "/images/minihomepageMain.jpg",
-
-  // public/images/gallery/01.webp ~ 20.webp
-  gallery: Array.from(
-    { length: 21 },
-    (_, i) => `/images/gallery/${String(i + 1).padStart(2, "0")}.png`
-  ),
 
   accounts: {
     groom: [
       { bank: "○○은행", number: "000-0000-0000", holder: "구혜성" },
-      { bank: "○○은행", number: "000-0000-0000", holder: "구혜성" },
+      { bank: "○○은행", number: "000-0000-0000", holder: "구진회" },
+      { bank: "○○은행", number: "000-0000-0000", holder: "유소영" },
     ],
     bride: [
       { bank: "○○은행", number: "000-0000-0000", holder: "김도혜" },
-      { bank: "○○은행", number: "000-0000-0000", holder: "김도혜" },
+      { bank: "○○은행", number: "000-0000-0000", holder: "김준호" },
+      { bank: "○○은행", number: "000-0000-0000", holder: "박종란" },
     ],
   } as Record<
     "groom" | "bride",
@@ -102,9 +95,14 @@ export const wedding = {
   share: {
     tabTitle: "The Beginning of Us",
     title: "The Beginning of Us",
-    description: "2027년 2월 13일 토요일 오전 11시 50분",
-    image: "/og.jpg", // public/og.jpg (가로 800 x 세로 400 권장)
+    description: "2027년 2월 13일 토요일 AM 11시 50분",
+    image: "/og.jpg", // (가로 800 x 세로 400 권장)
   },
+
+  gallery: Array.from(
+    { length: 21 },
+    (_, i) => `/images/gallery/${String(i + 1).padStart(2, "0")}.png`
+  ),
 
   // 미니홈피 버전에서만 쓰는 내용
   retro: {
@@ -113,7 +111,7 @@ export const wedding = {
     intro: "소중한 분들을\n초대합니다 ♡",
     bgmTitle: "The Beginning of Us - 혜성 & 도혜",
     miniroom: "B" as "A" | "B", // MiniRoom 그림 버전
-    // 미니홈피 다이어리 (우리 이야기) — 날짜 순서대로, 사진 - public/images/story/
+    // 미니홈피 다이어리 (우리 이야기) — 날짜 순서대로
     stories: [
       {
         date: "2024-03-10",
