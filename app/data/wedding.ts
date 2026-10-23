@@ -96,7 +96,7 @@ export const wedding = {
     tabTitle: "The Beginning of Us",
     title: "The Beginning of Us",
     description: "2027년 2월 13일 토요일 AM 11시 50분",
-    image: "/og.jpg?v=2", // (가로 800 x 세로 400 권장)
+    image: "/og.jpg", // (가로 800 x 세로 400 권장)
   },
 
   gallery: Array.from(
