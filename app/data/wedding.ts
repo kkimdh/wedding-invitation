@@ -101,7 +101,7 @@ export const wedding = {
 
   gallery: Array.from(
     { length: 21 },
-    (_, i) => `/images/gallery/${String(i + 1).padStart(2, "0")}.png`
+    (_, i) => `/images/gallery/${String(i + 1).padStart(2, "0")}.jpg`
   ),
 
   // 미니홈피 버전에서만 쓰는 내용
@@ -118,42 +118,42 @@ export const wedding = {
         title: "식장 계약",
         mood: "🏛️",
         text: "계속 날짜 고민하다가 \n크리스마스 이브날 결정",
-        photo: "/images/story/1.jpg",
+        photo: "/images/story/01.jpg",
       },
       {
         date: "2026-05-09",
         title: "촬영 예복 맞추러 다니기",
         mood: "👔",
         text: "입어보고, 벗고, 또 입어보기\n고르는 것보다 갈아입는 게 더 힘들었다",
-        photo: "/images/story/2.jpg",
+        photo: "/images/story/02.jpg",
       },
       {
         date: "2026-05-27",
         title: "웨딩 촬영",
         mood: "📸",
         text: "하루 종일 웃었더니 볼이 아프다..\n그래도 열심히 셀렉하기",
-        photo: "/images/story/3.jpg",
+        photo: "/images/story/03.jpg",
       },
       {
         date: "2026-07-31",
         title: "신혼집 계약",
         mood: "🏠",
         text: "연애 초반에 농담으로 찍어둔 집이였는데\n진짜 신혼집이 됐다",
-        photo: "/images/story/4.jpg",
+        photo: "/images/story/04.jpg",
       },
       {
         date: "2026-10-01",
         title: "청첩장, 모청 만들기",
         mood: "💻",
         text: "셀프병 걸린 신부의\n셀프 청첩장과 셀프 모청 만들기",
-        photo: "/images/story/5.jpg",
+        photo: "/images/story/05.jpg",
       },
       {
         date: "2027-02-13",
         title: "D-day",
         mood: "👰🏻‍♀️🤵🏻",
-        text: "기다리던 D-day\n오셔서 축하해 주세요 ε♥з",
-        photo: "/images/story/6.jpg",
+        text: "기다리던 디데이\n오셔서 축하해 주세요 ε♥з",
+        photo: "/images/story/06.jpg",
       },
     ] as Story[],
     // 미니홈피 사진첩 — 비워두면([]) gallery 사진이 '웨딩촬영' 폴더로 자동으로 들어감

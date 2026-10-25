@@ -2,7 +2,7 @@
 <template>
   <div class="min-h-dvh p-3 font-pixel text-[13px]">
     <!-- 기본 청첩장으로 돌아가기 -->
-    <NuxtLink to="/" class="mb-2 inline-block px-1 text-[11px] text-white"
+    <NuxtLink to="/" class="mb-2 inline-block px-1 text-[13px] text-white"
       >← 청첩장으로 돌아가기</NuxtLink
     >
 
@@ -105,7 +105,7 @@
           <!-- 미니룸 -->
           <div class="mt-3 border border-line">
             <p
-              class="border-b border-line bg-[#f7f7f7] px-2 py-1 text-[11px] text-muted"
+              class="border-b border-line bg-[#f7f7f7] px-2 py-1 text-[12px] text-muted"
             >
               미니룸
             </p>
@@ -135,7 +135,7 @@
         <section id="diary" class="scroll-mt-12 p-3">
           <div class="border border-line">
             <div
-              class="flex justify-between border-b border-line bg-[#f7f7f7] px-2 py-1 text-[11px]"
+              class="flex justify-between border-b border-line bg-[#f7f7f7] px-2 py-1 text-[12px]"
             >
               <span class="text-link">📔 다이어리</span>
               <span class="text-muted">우리 이야기 ({{ stories.length }})</span>
@@ -143,7 +143,7 @@
 
             <!-- 달력 -->
             <div class="border-b border-dashed border-line px-3 py-2">
-              <div class="flex items-center justify-center gap-5 text-[12px]">
+              <div class="flex items-center justify-center gap-5 text-[13px]">
                 <button
                   type="button"
                   class="px-1 text-muted disabled:opacity-30"
@@ -241,7 +241,7 @@
 
             <!-- 이전 일기 / 다음 일기 -->
             <div
-              class="flex items-center justify-between border-t border-line bg-[#fbfbfb] px-2 py-1.5 text-[11px]"
+              class="flex items-center justify-between border-t border-line bg-[#fbfbfb] px-2 py-1.5 text-[12px]"
             >
               <button
                 type="button"
@@ -270,7 +270,7 @@
         <section id="photo" class="scroll-mt-12 p-3">
           <div class="border border-line">
             <!-- 제목줄 -->
-            <p class="border-b border-line bg-[#f7f7f7] px-2 py-1 text-[11px]">
+            <p class="border-b border-line bg-[#f7f7f7] px-2 py-1 text-[12px]">
               <span class="text-link">
                 <svg
                   viewBox="0 0 12 10"
@@ -288,7 +288,7 @@
 
             <!-- 폴더 -->
             <div
-              class="flex flex-wrap gap-x-3 gap-y-1 border-b border-dashed border-line px-2 py-2 text-[11px]"
+              class="flex flex-wrap gap-x-3 gap-y-1 border-b border-dashed border-line px-2 py-2 text-[12px]"
             >
               <button
                 v-for="f in folders"
@@ -312,14 +312,14 @@
                     <path d="M1 3h10v6H1z" fill="#f7d36b" />
                   </template>
                 </svg>
-                {{ f.name }} <span class="text-[10px]">({{ f.count }})</span>
+                {{ f.name }} <span class="text-[11px]">({{ f.count }})</span>
               </button>
             </div>
 
             <!-- 게시물 (한 장씩) -->
             <article v-if="post" :key="post.photo">
               <div
-                class="flex items-center justify-between bg-[#fbfbfb] px-2 py-1.5 text-[12px]"
+                class="flex items-center justify-between bg-[#fbfbfb] px-2 py-1.5 text-[12.5px]"
               >
                 <span class="min-w-0 truncate">
                   <!-- <span class="text-muted"
@@ -327,7 +327,7 @@
                   > -->
                   <span class="ml-1.5">{{ post.title }}</span>
                 </span>
-                <span class="shrink-0 pl-2 text-[10px] text-muted">{{
+                <span class="shrink-0 pl-2 text-[11px] text-muted">{{
                   post.date
                 }}</span>
               </div>
@@ -335,7 +335,6 @@
               <button
                 type="button"
                 class="block w-full border-y border-line bg-[#f2f2f2] p-2"
-                @click="zoomOpen = true"
               >
                 <img
                   :src="post.photo"
@@ -344,10 +343,10 @@
                 />
               </button>
 
-              <p class="px-3 py-3 text-[12px] leading-5 whitespace-pre-line">
+              <p class="px-3 py-3 text-[13px] leading-5 whitespace-pre-line">
                 {{ post.text }}
               </p>
-              <p class="px-3 pb-2 text-right text-[10px] text-muted">
+              <p class="px-3 pb-2 text-right text-[11px] text-muted">
                 {{ post.folder }}
               </p>
             </article>
@@ -388,56 +387,12 @@
               </button>
             </div>
           </div>
-
-          <!-- 크게 보기 -->
-          <UModal
-            v-model:open="zoomOpen"
-            :ui="{
-              content:
-                'w-[calc(100%-2rem)] max-w-[440px] rounded-none bg-white ring-1 ring-line font-pixel',
-            }"
-          >
-            <template #content>
-              <div
-                class="flex items-center justify-between border-b border-line bg-[#f7f7f7] px-3 py-2 text-[12px]"
-              >
-                <span class="truncate text-link">
-                  <svg
-                    viewBox="0 0 12 10"
-                    class="mr-0.5 inline-block size-3.5 align-[-2px]"
-                    shape-rendering="crispEdges"
-                    aria-hidden="true"
-                  >
-                    <path d="M0 1h5v1h7v8H0z" fill="#e0a92e" />
-                    <path d="M1 3h10v6H1z" fill="#f7d36b" />
-                  </svg>
-                  {{ post?.title }}
-                </span>
-                <button
-                  type="button"
-                  class="px-1 text-muted"
-                  aria-label="닫기"
-                  @click="zoomOpen = false"
-                >
-                  ✕
-                </button>
-              </div>
-              <div class="bg-[#f2f2f2] p-2">
-                <img
-                  v-if="post"
-                  :src="post.photo"
-                  alt=""
-                  class="mx-auto block max-h-[75dvh] w-auto"
-                />
-              </div>
-            </template>
-          </UModal>
         </section>
 
         <!-- ───────── 방명록 ───────── -->
         <section id="guestbook" class="scroll-mt-12 p-3">
           <div class="border border-line">
-            <p class="border-b border-line bg-[#f7f7f7] px-2 py-1 text-[11px]">
+            <p class="border-b border-line bg-[#f7f7f7] px-2 py-1 text-[12px]">
               <span class="text-link">✏️ 방명록</span>
               <span class="text-muted"> ({{ entries.length }})</span>
             </p>
@@ -453,7 +408,7 @@
                   type="text"
                   maxlength="20"
                   placeholder="이름"
-                  class="min-w-0 flex-1 border border-line bg-white px-2 py-1.5 text-[12px] outline-none focus:border-link"
+                  class="min-w-0 flex-1 border border-line bg-white px-2 py-1.5 text-[13px] outline-none focus:border-link"
                 />
                 <input
                   v-model="form.password"
@@ -461,7 +416,7 @@
                   maxlength="20"
                   placeholder="비밀번호 (삭제용)"
                   autocomplete="new-password"
-                  class="min-w-0 flex-1 border border-line bg-white px-2 py-1.5 text-[12px] outline-none focus:border-link"
+                  class="min-w-0 flex-1 border border-line bg-white px-2 py-1.5 text-[13px] outline-none focus:border-link"
                 />
               </div>
               <textarea
@@ -469,16 +424,16 @@
                 rows="3"
                 maxlength="300"
                 placeholder="축하 메시지를 남겨주세요 ♡"
-                class="w-full resize-none border border-line bg-white px-2 py-1.5 text-[12px] leading-5 outline-none focus:border-link"
+                class="w-full resize-none border border-line bg-white px-2 py-1.5 text-[13px] leading-5 outline-none focus:border-link"
               />
               <div class="flex items-center justify-between">
-                <span class="text-[10px] text-muted"
+                <span class="text-[11px] text-muted"
                   >{{ form.message.length }}/300</span
                 >
                 <button
                   type="submit"
                   :disabled="sending"
-                  class="border border-line bg-[#f7f7f7] px-3 py-1 text-[12px] disabled:opacity-50"
+                  class="border border-line bg-[#f7f7f7] px-3 py-1 text-[13px] disabled:opacity-50"
                 >
                   등록
                 </button>
@@ -488,13 +443,13 @@
             <!-- 목록 -->
             <p
               v-if="gbLoading && !entries.length"
-              class="px-3 py-6 text-center text-[12px] text-muted"
+              class="px-3 py-6 text-center text-[13px] text-muted"
             >
               불러오는 중...
             </p>
             <p
               v-else-if="!entries.length"
-              class="px-3 py-6 text-center text-[12px] text-muted"
+              class="px-3 py-6 text-center text-[13px] text-muted"
             >
               첫 번째 방명록을 남겨주세요 ♡
             </p>
@@ -505,13 +460,13 @@
                 :class="i > 0 && 'border-t border-dashed border-line'"
               >
                 <div
-                  class="flex items-center justify-between bg-[#f7f7f7] px-2 py-1 text-[11px]"
+                  class="flex items-center justify-between bg-[#f7f7f7] px-2 py-1 text-[12px]"
                 >
                   <span>
                     <span class="text-muted">No.{{ entries.length - i }}</span>
                     <span class="ml-1.5 text-link">{{ e.name }}</span>
                   </span>
-                  <span class="flex items-center gap-2 text-[10px] text-muted">
+                  <span class="flex items-center gap-2 text-[11px] text-muted">
                     {{ formatEntryDate(e.createdAt) }}
                     <button
                       type="button"
@@ -540,7 +495,7 @@
                     />
                   </svg>
                   <p
-                    class="min-w-0 flex-1 text-[12px] leading-5 break-words whitespace-pre-line"
+                    class="min-w-0 flex-1 text-[12.5px] leading-5 break-words whitespace-pre-line"
                   >
                     {{ e.message }}
                   </p>
@@ -563,7 +518,7 @@
         <section id="info" class="scroll-mt-12 p-3">
           <div class="border border-line">
             <p
-              class="border-b border-line bg-[#f7f7f7] px-2 py-1 text-[11px] text-link"
+              class="border-b border-line bg-[#f7f7f7] px-2 py-1 text-[12px] text-link"
             >
               📍 오시는길
             </p>
@@ -617,14 +572,14 @@
                 :href="l.href"
                 target="_blank"
                 rel="noopener"
-                class="border border-line bg-[#f7f7f7] py-2 text-center text-[11px]"
+                class="border border-line bg-[#f7f7f7] py-2 text-center text-[12px]"
                 >{{ l.label }}</a
               >
             </div>
 
             <!-- 자세한 건 기본 청첩장에서 -->
             <div
-              class="grid grid-cols-2 border-t border-line text-center text-[11px]"
+              class="grid grid-cols-2 border-t border-line text-center text-[12px]"
             >
               <NuxtLink
                 to="/#location"
@@ -848,7 +803,6 @@ const folders = computed(() => {
 });
 const folder = ref("전체");
 const page = ref(0);
-const zoomOpen = ref(false);
 
 const folderPhotos = computed(() =>
   folder.value === "전체"

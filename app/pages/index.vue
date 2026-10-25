@@ -335,7 +335,7 @@
     </section>
 
     <!-- ───────── 미니홈피 버전으로 ───────── -->
-    <section class="px-6 pb-16">
+    <!-- <section class="px-6 pb-16">
       <NuxtLink
         to="/minihomepage"
         class="block rounded-md border border-dashed border-point/50 bg-[#f6f2ec] px-5 py-6 text-center"
@@ -345,10 +345,10 @@
           🏠 도혜성 미니홈피 놀러가기 →
         </p>
       </NuxtLink>
-    </section>
+    </section> -->
 
     <!-- ───────── 푸터 ───────── -->
-    <footer class="border-t border-line px-6 pt-10 pb-16 text-center">
+    <footer class="border-t border-line px-6 py-10 text-center">
       <KakaoShareButton
         class="w-full rounded-md bg-[#fee500] py-3.5 text-sm font-medium text-[#191919]"
       >
