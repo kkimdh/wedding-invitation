@@ -10,7 +10,7 @@
     <div class="rounded-2xl border-2 border-dashed border-white/80 p-2">
       <!-- 상단: 카운터 + 제목 -->
       <div
-        class="flex items-end justify-between px-1 pb-2 text-[11px] text-white"
+        class="flex items-end justify-between px-1 pb-2 text-[12px] text-white"
       >
         <p>
           TODAY <span class="text-point">{{ today ?? "" }}</span>
@@ -37,7 +37,7 @@
                   onerror="this.style.display='none'"
                 />
               </div>
-              <p class="mt-2 text-[11px] text-muted">
+              <p class="mt-2 text-[12px] text-muted">
                 Today is..
                 <span class="text-link">{{ wedding.retro.mood }}</span>
               </p>
@@ -77,7 +77,7 @@
 
           <!-- BGM 바 -->
           <div
-            class="mt-3 flex items-center gap-2 rounded border border-line bg-[#f7f7f7] px-2 py-1.5 text-[11px]"
+            class="mt-3 flex items-center gap-2 rounded border border-line bg-[#f7f7f7] px-2 py-1.5 text-[12px]"
           >
             <button
               type="button"
@@ -167,7 +167,7 @@
                 </button>
               </div>
 
-              <div class="mt-2 grid grid-cols-7 text-center text-[11px]">
+              <div class="mt-2 grid grid-cols-7 text-center text-[12px]">
                 <span
                   v-for="(w, i) in DIARY_WEEK"
                   :key="w"
@@ -210,7 +210,7 @@
               :key="story.date + story.title"
               class="px-3 py-4"
             >
-              <div class="flex items-center justify-between text-[11px]">
+              <div class="flex items-center justify-between text-[12px]">
                 <span class="text-muted">{{ story.dateLabel }}</span>
                 <span v-if="story.dayCount" class="text-point"
                   >D+{{ story.dayCount.toLocaleString() }}</span
@@ -312,7 +312,7 @@
                     <path d="M1 3h10v6H1z" fill="#f7d36b" />
                   </template>
                 </svg>
-                {{ f.name }} <span class="text-[11px]">({{ f.count }})</span>
+                {{ f.name }} <span class="text-[12px]">({{ f.count }})</span>
               </button>
             </div>
 
@@ -327,7 +327,7 @@
                   > -->
                   <span class="ml-1.5">{{ post.title }}</span>
                 </span>
-                <span class="shrink-0 pl-2 text-[11px] text-muted">{{
+                <span class="shrink-0 pl-2 text-[12px] text-muted">{{
                   post.date
                 }}</span>
               </div>
@@ -346,7 +346,7 @@
               <p class="px-3 py-3 text-[13px] leading-5 whitespace-pre-line">
                 {{ post.text }}
               </p>
-              <p class="px-3 pb-2 text-right text-[11px] text-muted">
+              <p class="px-3 pb-2 text-right text-[12px] text-muted">
                 {{ post.folder }}
               </p>
             </article>
@@ -427,7 +427,7 @@
                 class="w-full resize-none border border-line bg-white px-2 py-1.5 text-[13px] leading-5 outline-none focus:border-link"
               />
               <div class="flex items-center justify-between">
-                <span class="text-[11px] text-muted"
+                <span class="text-[12px] text-muted"
                   >{{ form.message.length }}/300</span
                 >
                 <button
@@ -466,7 +466,7 @@
                     <span class="text-muted">No.{{ entries.length - i }}</span>
                     <span class="ml-1.5 text-link">{{ e.name }}</span>
                   </span>
-                  <span class="flex items-center gap-2 text-[11px] text-muted">
+                  <span class="flex items-center gap-2 text-[12px] text-muted">
                     {{ formatEntryDate(e.createdAt) }}
                     <button
                       type="button"
@@ -595,7 +595,7 @@
 
         <!-- 푸터 -->
         <footer
-          class="border-t border-line px-3 py-4 text-center text-[11px] text-muted"
+          class="border-t border-line px-3 py-4 text-center text-[12px] text-muted"
         >
           <KakaoShareButton
             class="mb-3 w-full border border-line bg-[#fee500] py-2.5 text-[12px] text-[#191919]"
