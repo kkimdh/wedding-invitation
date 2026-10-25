@@ -100,7 +100,7 @@ export const wedding = {
   },
 
   gallery: Array.from(
-    { length: 21 },
+    { length: 25 },
     (_, i) => `/images/gallery/${String(i + 1).padStart(2, "0")}.jpg`
   ),
 
