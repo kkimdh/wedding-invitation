@@ -2,9 +2,9 @@
 <template>
   <div class="min-h-dvh p-3 font-pixel text-[13px]">
     <!-- 기본 청첩장으로 돌아가기 -->
-    <NuxtLink to="/" class="mb-2 inline-block px-1 text-[13px] text-white"
+    <!-- <NuxtLink to="/" class="mb-2 inline-block px-1 text-[13px] text-white"
       >← 청첩장으로 돌아가기</NuxtLink
-    >
+    > -->
 
     <!-- 바깥 프레임 (점선 바느질) -->
     <div class="rounded-2xl border-2 border-dashed border-white/80 p-2">
