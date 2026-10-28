@@ -34,7 +34,7 @@
                   :src="wedding.minihomepageMainPhoto"
                   alt=""
                   class="h-full w-full object-cover"
-                  onerror="this.style.display='none'"
+                  onerror="this.style.display = 'none'"
                 />
               </div>
               <p class="mt-2 text-[12px] text-muted">
@@ -176,8 +176,8 @@
                     i === 0
                       ? 'text-[#e05a5a]'
                       : i === 6
-                      ? 'text-link'
-                      : 'text-muted'
+                        ? 'text-link'
+                        : 'text-muted'
                   "
                   >{{ w }}</span
                 >
@@ -229,7 +229,7 @@
                   alt=""
                   loading="lazy"
                   class="block aspect-[4/3] w-full object-cover"
-                  onerror="this.parentElement.style.display='none'"
+                  onerror="this.parentElement.style.display = 'none'"
                 />
               </div>
               <p
@@ -691,7 +691,7 @@ const diaryMonths = [...new Set(stories.map((s) => s.date.slice(0, 7)))];
 const diaryIndex = ref(0); // 지금 보고 있는 일기 번호 (처음엔 첫 일기)
 const story = computed(() => stories[diaryIndex.value]);
 const diaryMonth = computed(
-  () => (story.value ?? stories[0])?.date.slice(0, 7) ?? ""
+  () => (story.value ?? stories[0])?.date.slice(0, 7) ?? "",
 );
 const monthIndex = computed(() => diaryMonths.indexOf(diaryMonth.value));
 
@@ -747,7 +747,7 @@ async function deleteEntry(id: number) {
   toast.add(
     error
       ? { title: error, color: "error", duration: 2000 }
-      : { title: "삭제되었습니다", duration: 1500 }
+      : { title: "삭제되었습니다", duration: 1500 },
   );
 }
 
@@ -768,7 +768,7 @@ const AVATAR = [
 ];
 const HAIR = ["#1c1a1a", "#8b5a3c", "#e0a040", "#c0504d", "#6b4f9e"];
 const avatarPixels = AVATAR.flatMap((row, y) =>
-  [...row].map((c, x) => ({ x, y, c })).filter((p) => p.c !== ".")
+  [...row].map((c, x) => ({ x, y, c })).filter((p) => p.c !== "."),
 );
 function avatarColor(c: string, hair: number) {
   return {
@@ -807,7 +807,7 @@ const page = ref(0);
 const folderPhotos = computed(() =>
   folder.value === "전체"
     ? album
-    : album.filter((a) => a.folder === folder.value)
+    : album.filter((a) => a.folder === folder.value),
 );
 const post = computed(() => folderPhotos.value[page.value]);
 
@@ -822,4 +822,21 @@ function selectFolder(name: string) {
   folder.value = name;
   page.value = 0;
 }
+
+/* ───────── 사진 미리 받아 두기 (넘길 때 바로 뜨게) ───────── */
+onMounted(() => {
+  const urls = [
+    ...album.map((a) => a.photo),
+    ...stories.map((s) => s.photo).filter(Boolean),
+  ] as string[];
+  // 첫 화면이 다 뜬 뒤에 한 장씩 조용히 받기
+  const start = () =>
+    urls.forEach((src) => {
+      const img = new Image();
+      img.decoding = "async";
+      img.src = src;
+    });
+  if ("requestIdleCallback" in window) requestIdleCallback(start);
+  else setTimeout(start, 1500);
+});
 </script>
