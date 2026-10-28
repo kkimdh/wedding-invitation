@@ -101,7 +101,7 @@ export const wedding = {
 
   gallery: Array.from(
     { length: 26 },
-    (_, i) => `/images/gallery/${String(i + 1).padStart(2, "0")}.jpg`
+    (_, i) => `/images/gallery/${String(i + 1).padStart(2, "0")}.jpg`,
   ),
 
   // 미니홈피 버전에서만 쓰는 내용
@@ -158,48 +158,129 @@ export const wedding = {
     ] as Story[],
     // 미니홈피 사진첩 — 비워두면([]) gallery 사진이 '웨딩촬영' 폴더로 자동으로 들어감
     album: [
+      // 웨딩촬영
       {
         folder: "웨딩촬영",
-        date: "2026.08.20",
-        title: "스튜디오에서 첫 컷",
-        text: "긴장해서 표정이 굳었던 첫 장 ㅎㅎ",
-        photo: "/images/gallery/test.jpg",
+        date: "2026-05-27",
+        title: "촬영 초반에",
+        text: "아직은 어색 ^_^;",
+        photo: "/images/album/album-02.jpg",
+      },
+      // {
+      //   folder: "웨딩촬영",
+      //   date: "2026-05-27",
+      //   title: "꽃이랑 뽀뽀",
+      //   text: "신랑보다 꽃이 먼저",
+      //   photo: "/images/album/album-01.jpg",
+      // },
+      {
+        folder: "웨딩촬영",
+        date: "2026-05-27",
+        title: "화장실 문 앞에서",
+        text: "입으로 숨 쉬지 말자 s2",
+        photo: "/images/album/album-03.jpg",
       },
       {
         folder: "웨딩촬영",
-        date: "2026.08.20",
-        title: "손 꼭 잡고",
+        date: "2026-05-27",
+        title: "빙글빙글",
         text: "",
-        photo: "/images/gallery/test.jpg",
+        photo: "/images/album/album-04.jpg",
+      },
+      // {
+      //   folder: "웨딩촬영",
+      //   date: "",
+      //   title: "누구 봐?",
+      //   text: "",
+      //   photo: "/images/album/album-05.jpg",
+      // },
+      {
+        folder: "웨딩촬영",
+        date: "",
+        title: "(*^^)(^^*)",
+        text: "디카 포함해서 사진 백만장은 찍은 하루",
+        photo: "/images/album/album-06.jpg",
       },
       {
         folder: "웨딩촬영",
-        date: "2026.08.20",
-        title: "부케 들고 한 컷",
-        text: "초록 부케가 제일 마음에 들었어요",
-        photo: "/images/gallery/test.jpg",
+        date: "2026-05-27",
+        title: "와다다다",
+        text: "비 쫄딱 맞으면서 한 야외촬영 ㅇㅁㅇ",
+        photo: "/images/album/album-07.jpg",
+      },
+
+      // 데이트
+      {
+        folder: "데이트",
+        date: "2024-03-23",
+        title: "처음 같이 찍은 사진",
+        text: "어색 어색 열매 ^_^;;",
+        photo: "/images/album/album-17.jpg",
+      },
+
+      // {
+      //   folder: "데이트",
+      //   date: "",
+      //   title: "집 가자",
+      //   text: "",
+      //   photo: "/images/album/album-09.jpg",
+      // },
+      // {
+      //   folder: "데이트",
+      //   date: "",
+      //   title: "딸기 따기",
+      //   text: "",
+      //   photo: "/images/album/album-10.jpg",
+      // },
+      {
+        folder: "데이트",
+        date: "2025-05-24",
+        title: "혜성이 생일 기념 글램핑",
+        text: "전날 발베니 한 병 다 먹고 얼굴 퉁퉁",
+        photo: "/images/album/album-13.jpg",
       },
       {
         folder: "데이트",
-        date: "2024.06.17",
-        title: "100일",
-        text: "케이크 앞에서 찰칵",
-        photo: "/images/gallery/test.jpg",
+        date: "2025-07-15",
+        title: "이재모 피자",
+        text: "처음으로 웨이팅해서 먹었던 곳\n혜성이가 좋아함",
+        photo: "/images/album/album-12.jpg",
       },
       {
         folder: "데이트",
-        date: "2025.03.10",
-        title: "1주년 여행",
-        text: "",
-        photo: "/images/gallery/test.jpg",
+        date: "2026-01-06",
+        title: "도혜 생일",
+        text: "초밥맛집이래서 먹으러 갔는데 \n우리밖에 없어서 머쓱",
+        photo: "/images/album/album-11.jpg",
       },
       {
         folder: "데이트",
-        date: "2026.05.01",
-        title: "프러포즈 날",
-        text: "울지 않으려고 했는데...",
-        photo: "/images/gallery/test.jpg",
+        date: "2026-07-27",
+        title: "털레털레",
+        text: "부산 여행가서 맛집가려고 멋드려지게 \n꾸미고 나왔는데 문 닫아서 바로 숙소행",
+        photo: "/images/album/album-08.jpg",
       },
+      // {
+      //   folder: "데이트",
+      //   date: "",
+      //   title: "벚꽃 엔딩",
+      //   text: "",
+      //   photo: "/images/album/album-14.jpg",
+      // },
+      // {
+      //   folder: "데이트",
+      //   date: "",
+      //   title: "제주 여행",
+      //   text: "",
+      //   photo: "/images/album/album-15.jpg",
+      // },
+      // {
+      //   folder: "데이트",
+      //   date: "",
+      //   title: "째릿",
+      //   text: "",
+      //   photo: "/images/album/album-16.jpg",
+      // },
     ] as {
       folder: string;
       date: string;
