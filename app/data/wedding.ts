@@ -78,7 +78,7 @@ export const wedding = {
   accounts: {
     groom: [
       { bank: "국민은행", number: "22640204171720", holder: "구혜성" },
-      { bank: "우리은행", number: "1005103608190", holder: "구진회" },
+      { bank: "농협은행", number: "3522199091373", holder: "구진회" },
       { bank: "국민은행", number: "22640104238277", holder: "유소영" },
     ],
     bride: [
