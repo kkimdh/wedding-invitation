@@ -77,14 +77,14 @@ export const wedding = {
 
   accounts: {
     groom: [
-      { bank: "국민은행", number: "22640204171720", holder: "구혜성" },
-      { bank: "농협은행", number: "3522199091373", holder: "구진회" },
-      { bank: "국민은행", number: "22640104238277", holder: "유소영" },
+      { bank: "국민은행", number: "226402-04-171720", holder: "구혜성" },
+      { bank: "농협은행", number: "352-2199-0913-73", holder: "구진회" },
+      { bank: "국민은행", number: "226401-04-238277", holder: "유소영" },
     ],
     bride: [
-      { bank: "국민은행", number: "66620201924354", holder: "김도혜" },
-      { bank: "농협은행", number: "0103446029708", holder: "김준호" },
-      { bank: "신협은행", number: "132089165207", holder: "박종란" },
+      { bank: "국민은행", number: "666202-01-924354", holder: "김도혜" },
+      { bank: "농협은행", number: "010-3446-0297-08", holder: "김준호" },
+      { bank: "신협", number: "132-089-165207", holder: "박종란" },
     ],
   } as Record<
     "groom" | "bride",

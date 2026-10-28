@@ -324,7 +324,7 @@
               <button
                 type="button"
                 class="rounded border border-line px-2.5 py-1 text-xs"
-                @click="copy(`${a.bank} ${a.number}`)"
+                @click="copy(`${a.bank} ${a.number.replace(/\D/g, '')}`)"
               >
                 복사
               </button>
@@ -371,8 +371,7 @@ definePageMeta({
   },
 });
 
-const { wedding, dateText, dotDate, day, cells, dday, mapLinks, copy } =
-  useWedding();
+const { wedding, dotDate, day, cells, dday, mapLinks, copy } = useWedding();
 const { preview, showAll, visiblePhotos, viewerOpen, viewerIndex, openViewer } =
   useGallery();
 useWeddingSeo();
