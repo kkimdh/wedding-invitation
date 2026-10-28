@@ -28,12 +28,12 @@
           <div class="flex gap-3">
             <div class="w-[42%] shrink-0">
               <div
-                class="aspect-[3/4] overflow-hidden border border-line bg-[#f2f2f2] p-1"
+                class="relative aspect-[3/4] overflow-hidden border border-line bg-[#f2f2f2]"
               >
                 <img
                   :src="wedding.minihomepageMainPhoto"
                   alt=""
-                  class="h-full w-full object-cover"
+                  class="absolute inset-1 h-[calc(100%-0.5rem)] w-[calc(100%-0.5rem)] object-cover"
                   onerror="this.style.display = 'none'"
                 />
               </div>
